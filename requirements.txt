@@ -1,0 +1,6 @@
+pandas
+openpyxl
+PyMuPDF
+pdf2image
+pytesseract
+pyinstaller
