@@ -1,29 +1,29 @@
-Extrair PDF -> Excel
+PDF -> Excel Extractor
 
-Uso
+Usage
 
-- GUI mode: dar duplo clique em `extrair_pdf_excel.exe` e selecionar a pasta.
-- CLI mode: `extrair_pdf_excel.exe <pasta>` ou `python extrair_pdf_excel.py <pasta>`.
+- GUI mode: double-click `extrair_pdf_excel.exe` and select the folder containing PDFs.
+- CLI mode: `extrair_pdf_excel.exe <folder>` or `python extrair_pdf_excel.py <folder>`.
 
 Output
 
-- Gera `resultado.xlsx` na pasta selecionada com colunas: Ficheiro, RefPagamento, ValorSemIVA, ValorComIVA, PT2, DescricaoDebito, NeedsReview
+- Produces `resultado.xlsx` in the selected folder with columns: Ficheiro, RefPagamento, ValorSemIVA, ValorComIVA, PT2, DescricaoDebito, NeedsReview
 
-Requisitos
+Requirements
 
-Instalar dependências via:
+Install Python dependencies with:
 
 ```powershell
 pip install -r requirements.txt
 ```
 
-Construir EXE
+Build the Windows executable
 
 ```powershell
 py -m PyInstaller --onefile --windowed --name extrair_pdf_excel "extrair_pdf_excel.py"
 ```
 
-Observações
+Notes
 
-- O script usa PyMuPDF (`fitz`) para extrair texto. Para PDFs escaneados habilitar OCR instalando `pdf2image` e `pytesseract` e certificando que `tesseract` está disponível no PATH.
-- `NeedsReview` é marcado quando `ValorSemIVA` ou `ValorComIVA` estiverem em falta ou quando `ValorComIVA < ValorSemIVA`.
+- The script uses PyMuPDF (`fitz`) for text extraction. For scanned PDFs enable OCR by installing `pdf2image` and `pytesseract` and ensuring `tesseract` is available in PATH.
+- `NeedsReview` is set when `ValorSemIVA` or `ValorComIVA` are missing or when `ValorComIVA < ValorSemIVA`.
